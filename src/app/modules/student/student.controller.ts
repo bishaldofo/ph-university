@@ -15,10 +15,10 @@ const createStudent = async (req: Request, res: Response) => {
       message: 'Student is created succesfully',
       data: result,
     });
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({
       success: false,
-      message: 'Something Wrong!',
+      message: err.message || 'Something Wrong!',
       error: err
     });
   }
